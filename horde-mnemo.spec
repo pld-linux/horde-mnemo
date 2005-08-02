@@ -1,5 +1,6 @@
 %include	/usr/lib/rpm/macros.php
-Summary:	Nag Task List Manager
+Summary:	Horde notes and memos application
+Summary(pl):	Aplikacja z notatkami i przypominajkami dla Horde
 Name:		mnemo
 Version:	2.0.1
 Release:	0.1
@@ -34,7 +35,18 @@ functionality to the Palm Memo application.
 
 The Horde Project writes web applications in PHP and releases them
 under the GNU General Public License. For more information (including
-help with Gollem) please visit <http://www.horde.org/>.
+help with Mnemo) please visit <http://www.horde.org/>.
+
+%description -l pl
+Mnemo to aplikacja z notatkami i przypominajkami dla Horde. Pozwala
+u¿ytkownikom na przechowywanie notatek z dowolnym tekstem oraz innych
+informacji, która nie pasuje do okre¶lenia kontakt, rzecz do
+zrobienia, zdarzenie itp. Jest bardzo podobna w funkcjonalno¶ci do
+aplikacji Palm Memo.
+
+Projekt Horde tworzy aplikacje WWW w PHP i wydaje je na licencji GNU
+General Public License. Wiêcej informacji (w³±cznie z pomoc± dla
+Mnemo) mo¿na znale¼æ na stronie <http://www.horde.org/>.
 
 %prep
 %setup -q -n %{name}-h3-%{version}
