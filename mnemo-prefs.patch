@@ -1,0 +1,11 @@
+--- ./config/prefs.php.dist~	2004-12-07 21:55:16.000000000 +0200
++++ ./config/prefs.php.dist	2005-09-04 13:04:29.000000000 +0300
+@@ -6,7 +6,7 @@
+  */
+ 
+ // Make sure that constants are defined.
+-@define('MNEMO_BASE', dirname(__FILE__) . '/..');
++@define('MNEMO_BASE', '/usr/share/horde/mnemo');
+ require_once MNEMO_BASE . '/lib/Mnemo.php';
+ 
+ $prefGroups['display'] = array(
