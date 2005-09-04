@@ -3,16 +3,16 @@ Summary:	Horde notes and memos application
 Summary(pl):	Aplikacja z notatkami i przypominajkami dla Horde
 Name:		mnemo
 Version:	2.0.1
-Release:	0.1
+Release:	0.3
 License:	GPL
 Vendor:		The Horde Project
 Group:		Applications/WWW
 Source0:	ftp://ftp.horde.org/pub/mnemo/%{name}-h3-%{version}.tar.gz
 # Source0-md5:	eca23463b7340b8bc1e7b5be2353bdc9
 Source1:	%{name}.conf
+Patch0:		%{name}-prefs.patch
 URL:		http://www.horde.org/mnemo/
 BuildRequires:	rpmbuild(macros) >= 1.226
-BuildRequires:	tar >= 1:1.15.1
 Requires:	apache >= 1.3.33-2
 Requires:	apache(mod_access)
 Requires:	horde >= 3.0
@@ -50,6 +50,7 @@ Mnemo) mo¿na znale¼æ na stronie <http://www.horde.org/>.
 
 %prep
 %setup -q -n %{name}-h3-%{version}
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
