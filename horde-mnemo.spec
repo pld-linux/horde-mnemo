@@ -10,7 +10,6 @@ Name:		%{_hordeapp}
 Version:	2.0.1
 Release:	%{?_rc:0.%{_rc}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{_rel}
 License:	GPL
-Vendor:		The Horde Project
 Group:		Applications/WWW
 Source0:	ftp://ftp.horde.org/pub/mnemo/%{_hordeapp}-h3-%{version}.tar.gz
 # Source0-md5:	eca23463b7340b8bc1e7b5be2353bdc9
