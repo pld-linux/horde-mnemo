@@ -1,18 +1,18 @@
 %define	_hordeapp mnemo
 #define	_snap	2005-08-01
 #define	_rc		rc2
-%define	_rel	2
+%define	_rel	1
 #
 %include	/usr/lib/rpm/macros.php
 Summary:	Horde notes and memos application
 Summary(pl):	Aplikacja z notatkami i przypominajkami dla Horde
 Name:		horde-%{_hordeapp}
-Version:	2.1
+Version:	2.1.1
 Release:	%{?_rc:0.%{_rc}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{_rel}
 License:	GPL
 Group:		Applications/WWW
 Source0:	ftp://ftp.horde.org/pub/mnemo/%{_hordeapp}-h3-%{version}.tar.gz
-# Source0-md5:	9dc9d19ffdc7dfd332f6667fef630e29
+# Source0-md5:	84419f68027037f53b5db38a6ab9c0cc
 #Source0:	ftp://ftp.horde.org/pub/mnemo/%{_hordeapp}-h3-%{version}-%{_rc}.tar.gz
 Source1:	%{_hordeapp}.conf
 Patch0:		%{_hordeapp}-prefs.patch
