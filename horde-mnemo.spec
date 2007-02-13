@@ -5,7 +5,7 @@
 #
 %include	/usr/lib/rpm/macros.php
 Summary:	Horde notes and memos application
-Summary(pl.UTF-8):   Aplikacja z notatkami i przypominajkami dla Horde
+Summary(pl.UTF-8):	Aplikacja z notatkami i przypominajkami dla Horde
 Name:		horde-%{_hordeapp}
 Version:	2.1.1
 Release:	%{?_rc:0.%{_rc}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{_rel}
