@@ -1,19 +1,19 @@
 %define	_hordeapp mnemo
 #define	_snap	2005-08-01
-#define	_rc		rc2
-%define	_rel	2
+%define	_rc		rc1
+%define	_rel	1
 #
 %include	/usr/lib/rpm/macros.php
 Summary:	Horde notes and memos application
 Summary(pl.UTF-8):	Aplikacja z notatkami i przypominajkami dla Horde
 Name:		horde-%{_hordeapp}
-Version:	2.1.1
+Version:	2.2
 Release:	%{?_rc:0.%{_rc}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{_rel}
 License:	GPL
 Group:		Applications/WWW
-Source0:	ftp://ftp.horde.org/pub/mnemo/%{_hordeapp}-h3-%{version}.tar.gz
-# Source0-md5:	84419f68027037f53b5db38a6ab9c0cc
-#Source0:	ftp://ftp.horde.org/pub/mnemo/%{_hordeapp}-h3-%{version}-%{_rc}.tar.gz
+#Source0:	ftp://ftp.horde.org/pub/mnemo/%{_hordeapp}-h3-%{version}.tar.gz
+Source0:	ftp://ftp.horde.org/pub/mnemo/%{_hordeapp}-h3-%{version}-%{_rc}.tar.gz
+# Source0-md5:	7ce180ae5b646f6e180c0918dd793e00
 Source1:	%{_hordeapp}.conf
 Patch0:		%{_hordeapp}-prefs.patch
 URL:		http://www.horde.org/mnemo/
@@ -48,14 +48,14 @@ help with Mnemo) please visit <http://www.horde.org/>.
 
 %description -l pl.UTF-8
 Mnemo to aplikacja z notatkami i przypominajkami dla Horde. Pozwala
-użytkownikom na przechowywanie notatek z dowolnym tekstem oraz innych
-informacji, która nie pasuje do określenia kontakt, rzecz do
-zrobienia, zdarzenie itp. Jest bardzo podobna w funkcjonalności do
+u??ytkownikom na przechowywanie notatek z dowolnym tekstem oraz innych
+informacji, kt??ra nie pasuje do okre??lenia kontakt, rzecz do
+zrobienia, zdarzenie itp. Jest bardzo podobna w funkcjonalno??ci do
 aplikacji Palm Memo.
 
 Projekt Horde tworzy aplikacje WWW w PHP i wydaje je na licencji GNU
-General Public License. Więcej informacji (włącznie z pomocą dla
-Mnemo) można znaleźć na stronie <http://www.horde.org/>.
+General Public License. Wi??cej informacji (w????cznie z pomoc?? dla
+Mnemo) mo??na znale???? na stronie <http://www.horde.org/>.
 
 %prep
 %setup -qcT -n %{?_snap:%{_hordeapp}-%{_snap}}%{!?_snap:%{_hordeapp}-%{version}%{?_rc:-%{_rc}}}
