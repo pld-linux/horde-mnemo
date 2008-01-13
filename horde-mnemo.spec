@@ -48,14 +48,14 @@ help with Mnemo) please visit <http://www.horde.org/>.
 
 %description -l pl.UTF-8
 Mnemo to aplikacja z notatkami i przypominajkami dla Horde. Pozwala
-u??ytkownikom na przechowywanie notatek z dowolnym tekstem oraz innych
-informacji, kt??ra nie pasuje do okre??lenia kontakt, rzecz do
-zrobienia, zdarzenie itp. Jest bardzo podobna w funkcjonalno??ci do
+użytkownikom na przechowywanie notatek z dowolnym tekstem oraz innych
+informacji, która nie pasuje do określenia kontakt, rzecz do
+zrobienia, zdarzenie itp. Jest bardzo podobna w funkcjonalności do
 aplikacji Palm Memo.
 
 Projekt Horde tworzy aplikacje WWW w PHP i wydaje je na licencji GNU
-General Public License. Wi??cej informacji (w????cznie z pomoc?? dla
-Mnemo) mo??na znale???? na stronie <http://www.horde.org/>.
+General Public License. Więcej informacji (włącznie z pomocą dla
+Mnemo) można znaleźć na stronie <http://www.horde.org/>.
 
 %prep
 %setup -qcT -n %{?_snap:%{_hordeapp}-%{_snap}}%{!?_snap:%{_hordeapp}-%{version}%{?_rc:-%{_rc}}}
