@@ -1,28 +1,28 @@
-%define	_hordeapp mnemo
-#define	_snap	2005-08-01
-%define	_rc		rc1
-%define	_rel	1
+%define		hordeapp mnemo
+#define		_snap	2005-08-01
+%define		subver	rc2
+%define		rel	1
 #
 %include	/usr/lib/rpm/macros.php
 Summary:	Horde notes and memos application
 Summary(pl.UTF-8):	Aplikacja z notatkami i przypominajkami dla Horde
-Name:		horde-%{_hordeapp}
+Name:		horde-%{hordeapp}
 Version:	2.2
-Release:	%{?_rc:0.%{_rc}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{_rel}
+Release:	%{?subver:0.%{subver}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{rel}
 License:	GPL
 Group:		Applications/WWW
-#Source0:	ftp://ftp.horde.org/pub/mnemo/%{_hordeapp}-h3-%{version}.tar.gz
-Source0:	ftp://ftp.horde.org/pub/mnemo/%{_hordeapp}-h3-%{version}-%{_rc}.tar.gz
-# Source0-md5:	7ce180ae5b646f6e180c0918dd793e00
-Source1:	%{_hordeapp}.conf
-Patch0:		%{_hordeapp}-prefs.patch
+#Source0:	ftp://ftp.horde.org/pub/mnemo/%{hordeapp}-h3-%{version}.tar.gz
+Source0:	ftp://ftp.horde.org/pub/mnemo/%{hordeapp}-h3-%{version}-%{subver}.tar.gz
+# Source0-md5:	083febbf8794aa1f82689fd10c2561b4
+Source1:	%{hordeapp}.conf
+Patch0:		%{hordeapp}-prefs.patch
 URL:		http://www.horde.org/mnemo/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	tar >= 1:1.15.1
 Requires:	horde >= 3.0
 Requires:	webapps
-Obsoletes:	%{_hordeapp}
+Obsoletes:	%{hordeapp}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,9 +31,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_noautoreq	'pear(Horde.*)'
 
 %define		hordedir	/usr/share/horde
-%define		_appdir		%{hordedir}/%{_hordeapp}
+%define		_appdir		%{hordedir}/%{hordeapp}
 %define		_webapps	/etc/webapps
-%define		_webapp		horde-%{_hordeapp}
+%define		_webapp		horde-%{hordeapp}
 %define		_sysconfdir	%{_webapps}/%{_webapp}
 
 %description
@@ -58,7 +58,7 @@ General Public License. Więcej informacji (włącznie z pomocą dla
 Mnemo) można znaleźć na stronie <http://www.horde.org/>.
 
 %prep
-%setup -qcT -n %{?_snap:%{_hordeapp}-%{_snap}}%{!?_snap:%{_hordeapp}-%{version}%{?_rc:-%{_rc}}}
+%setup -qcT -n %{?_snap:%{hordeapp}-%{_snap}}%{!?_snap:%{hordeapp}-%{version}%{?subver:-%{subver}}}
 tar zxf %{SOURCE0} --strip-components=1
 %patch0 -p1
 
@@ -95,7 +95,7 @@ if [ "$1" = 1 ]; then
 IMPORTANT:
 If you are installing for the first time, You may need to
 create the Mnemo database tables. To do so run:
-zcat %{_docdir}/%{name}-%{version}/scripts/sql/%{_hordeapp}.sql.gz | mysql horde
+zcat %{_docdir}/%{name}-%{version}/scripts/sql/%{hordeapp}.sql.gz | mysql horde
 EOF
 fi
 
@@ -110,32 +110,6 @@ fi
 
 %triggerun -- apache < 2.2.0, apache-base
 %webapp_unregister httpd %{_webapp}
-
-%triggerpostun -- horde-%{_hordeapp} < 2.0.2-1.1, %{_hordeapp}
-for i in conf.php prefs.php; do
-	if [ -f /etc/horde.org/%{_hordeapp}/$i.rpmsave ]; then
-		mv -f %{_sysconfdir}/$i{,.rpmnew}
-		mv -f /etc/horde.org/%{_hordeapp}/$i.rpmsave %{_sysconfdir}/$i
-	fi
-done
-
-if [ -f /etc/horde.org/apache-%{_hordeapp}.conf.rpmsave ]; then
-	mv -f %{_sysconfdir}/apache.conf{,.rpmnew}
-	mv -f %{_sysconfdir}/httpd.conf{,.rpmnew}
-	cp -f /etc/horde.org/apache-%{_hordeapp}.conf.rpmsave %{_sysconfdir}/apache.conf
-	cp -f /etc/horde.org/apache-%{_hordeapp}.conf.rpmsave %{_sysconfdir}/httpd.conf
-fi
-
-if [ -L /etc/apache/conf.d/99_horde-%{_hordeapp}.conf ]; then
-	/usr/sbin/webapp register apache %{_webapp}
-	rm -f /etc/apache/conf.d/99_horde-%{_hordeapp}.conf
-	%service -q apache reload
-fi
-if [ -L /etc/httpd/httpd.conf/99_horde-%{_hordeapp}.conf ]; then
-	/usr/sbin/webapp register httpd %{_webapp}
-	rm -f /etc/httpd/httpd.conf/99_horde-%{_hordeapp}.conf
-	%service -q httpd reload
-fi
 
 %files
 %defattr(644,root,root,755)
