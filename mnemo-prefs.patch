@@ -1,11 +1,11 @@
---- ./config/prefs.php.dist~	2004-12-07 21:55:16.000000000 +0200
-+++ ./config/prefs.php.dist	2005-09-04 13:04:29.000000000 +0300
+--- mnemo-2.2-rc2/config/prefs.php.dist~	2008-02-07 01:10:17.000000000 +0200
++++ mnemo-2.2-rc2/config/prefs.php.dist	2008-02-07 01:10:46.436604857 +0200
 @@ -6,7 +6,7 @@
   */
  
  // Make sure that constants are defined.
--@define('MNEMO_BASE', dirname(__FILE__) . '/..');
-+@define('MNEMO_BASE', '/usr/share/horde/mnemo');
- require_once MNEMO_BASE . '/lib/Mnemo.php';
+-require_once dirname(__FILE__) . '/../lib/Mnemo.php';
++require_once '/usr/share/horde/mnemo/lib/Mnemo.php';
  
  $prefGroups['display'] = array(
+     'column' => _("General Options"),
