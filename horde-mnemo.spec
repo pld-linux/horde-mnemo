@@ -1,19 +1,15 @@
 %define		hordeapp mnemo
-#define		_snap	2005-08-01
-%define		subver	rc2
-%define		rel	1
 #
 %include	/usr/lib/rpm/macros.php
 Summary:	Horde notes and memos application
 Summary(pl.UTF-8):	Aplikacja z notatkami i przypominajkami dla Horde
 Name:		horde-%{hordeapp}
-Version:	2.2
-Release:	%{?subver:0.%{subver}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{rel}
+Version:	2.2.1
+Release:	0.1
 License:	GPL
 Group:		Applications/WWW
-#Source0:	ftp://ftp.horde.org/pub/mnemo/%{hordeapp}-h3-%{version}.tar.gz
-Source0:	ftp://ftp.horde.org/pub/mnemo/%{hordeapp}-h3-%{version}-%{subver}.tar.gz
-# Source0-md5:	083febbf8794aa1f82689fd10c2561b4
+Source0:	ftp://ftp.horde.org/pub/mnemo/%{hordeapp}-h3-%{version}.tar.gz
+# Source0-md5:	40d760978a604bdfc13ce9510212d1b7
 Source1:	%{hordeapp}.conf
 Patch0:		%{hordeapp}-prefs.patch
 URL:		http://www.horde.org/mnemo/
@@ -58,8 +54,7 @@ General Public License. Więcej informacji (włącznie z pomocą dla
 Mnemo) można znaleźć na stronie <http://www.horde.org/>.
 
 %prep
-%setup -qcT -n %{?_snap:%{hordeapp}-%{_snap}}%{!?_snap:%{hordeapp}-%{version}%{?subver:-%{subver}}}
-tar zxf %{SOURCE0} --strip-components=1
+%setup -q
 %patch0 -p1
 
 rm */.htaccess
