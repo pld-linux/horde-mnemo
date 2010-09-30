@@ -4,12 +4,12 @@
 Summary:	Horde notes and memos application
 Summary(pl.UTF-8):	Aplikacja z notatkami i przypominajkami dla Horde
 Name:		horde-%{hordeapp}
-Version:	2.2.3
+Version:	2.2.4
 Release:	1
 License:	GPL
 Group:		Applications/WWW
 Source0:	ftp://ftp.horde.org/pub/mnemo/%{hordeapp}-h3-%{version}.tar.gz
-# Source0-md5:	ab95e089b9a977b9c1ca9d71e75c2242
+# Source0-md5:	dd5962bf7131649351d88b42770797cf
 Source1:	%{hordeapp}.conf
 Patch0:		%{hordeapp}-prefs.patch
 URL:		http://www.horde.org/mnemo/
