@@ -5,7 +5,7 @@ Summary:	Horde notes and memos application
 Summary(pl.UTF-8):	Aplikacja z notatkami i przypominajkami dla Horde
 Name:		horde-%{hordeapp}
 Version:	2.2.4
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/WWW
 Source0:	ftp://ftp.horde.org/pub/mnemo/%{hordeapp}-h3-%{version}.tar.gz
@@ -23,7 +23,7 @@ Conflicts:	apache-base < 2.4.0-1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_noautoreq	'pear(/usr/share/horde.*)' 'pear(Horde.*)'
+%define		_noautoreq_pear	/usr/share/horde.* Horde.*
 
 %define		hordedir	/usr/share/horde
 %define		_appdir		%{hordedir}/%{hordeapp}
