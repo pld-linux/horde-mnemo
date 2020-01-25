@@ -1,6 +1,5 @@
 %define		hordeapp mnemo
 #
-%include	/usr/lib/rpm/macros.php
 Summary:	Horde notes and memos application
 Summary(pl.UTF-8):	Aplikacja z notatkami i przypominajkami dla Horde
 Name:		horde-%{hordeapp}
